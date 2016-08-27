@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <title>Lista Telefonica</title>
         <script src="angular.js" charset="utf-8"></script>
+        <script src="angular.message.js" charset="utf-8"></script>
         <style media="screen">
             .jumbotron {
                 width: 500px;
@@ -28,7 +29,7 @@
 
         </style>
         <script type="text/javascript">
-            angular.module("ListaTelefonica", []);
+            angular.module("ListaTelefonica", ['ngMessages']);
             angular.module("ListaTelefonica").controller("listaTelefonicaCtrl", listaTelefonicaCtrl);
 
             /*@ngInject*/
@@ -144,20 +145,20 @@
                 </table>
                 <hr>
                 {{contato}}
-                <form>
+                <form name="contatoForm">
                     <div class="row">
                         <div class="form-group">
-                            <input type="text" placeholder="Informe um nome" class="form-control" ng-model="contato.nome" name="nome">
+                            <input type="text" ng-required="true" minlength="10" placeholder="Informe um nome" class="form-control" ng-model="contato.nome" name="nome">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Informe um Sobrenome" ng-model="contato.sobrenome" name="sobrenome">
+                            <input type="text"  ng-required="true" class="form-control" placeholder="Informe um Sobrenome" ng-model="contato.sobrenome" name="sobrenome">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Informe um Telefone" ng-model="contato.telefone" name="telefone">
+                            <input type="text"  ng-required="true" class="form-control" placeholder="Informe um Telefone" ng-model="contato.telefone" name="telefone">
                         </div>
                     </div>
                     <div class="row">
@@ -167,12 +168,20 @@
                             </select>
                         </div>
                     </div>
-                    <button type="button" name="button" ng-show="isSelecionado(listaContatos);" ng-click="apagarContatos(listaContatos)" class="btn btn-danger">Deletar</button>
-                    <button type="button" ng-click="adicionarContato(contato);" ng-disabled="!contato.nome || !contato.sobrenome || !contato.telefone" name="button" class="btn btn-primary">Adicionar</button>
-
                 </form>
+                <button type="button" ng-click="adicionarContato(contato);" ng-disabled="!contatoForm.$isValid" name="button" class="btn btn-primary">Adicionar</button>
+                <button type="button" name="button" ng-show="isSelecionado(listaContatos);" ng-click="apagarContatos(listaContatos)" class="btn btn-danger">Deletar</button>
+                 <hr>
+                <div ng-messages="contatoForm.nome.$error" class="alert alert-danger">
+                    <div ng-message="required">
+                        Por favor, preencha o campo nome!
+                    </div>
+                    <div ng-message="minlength">
+                        O campo nome deve ter no minimo 10 caracteres
+                    </div>
+                </div>
             </div>
         </div>
-        <div ng-include="'footer.html' "></div>
+        <!-- <div ng-include="'footer.html' "></div> -->
     </body>
 </html>
