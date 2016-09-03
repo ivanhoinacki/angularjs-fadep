@@ -3,6 +3,23 @@
 > seed-project do nosso curso em angularjs.
 
 
+#O que vimos até agora:
+> Introdução ao angularjs
+    > About
+    > Por que usar angularjs
+    > Quem está usando
+    > hello-world
+    > conceitos de projeto
+    > aplicando diretivas no projeto
+    > aplicando o Bootstrap
+    > criando funcionalidades
+    > aplicando filtros
+    > conectando com o back-end
+    > criando rest's
+    > utilizando $http
+
+
+
 Referências:
 
 Bootstrap - Classes com styles que usamos e exemplos para vocês fazer algo novo.
