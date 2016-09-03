@@ -7,6 +7,7 @@ Referências:
 
 Bootstrap - Classes com styles que usamos e exemplos para vocês fazer algo novo.
 [Bootstrap](http://getbootstrap.com/)
+e
 [Bootstrap - Componentes](http://getbootstrap.com/components/)
 
 AngularJS -  Diretivas - todos os modelos que podem ser utilizados e as descrições de uso.
@@ -23,7 +24,7 @@ nodeJS - Documentação
 
 ExpressJS - Documentação
 [ExmpressJS](https://expressjs.com/)
-e 
+e
 [Hello World](https://expressjs.com/en/starter/hello-world.html)
 
 Slides das Aulas
