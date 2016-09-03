@@ -15,11 +15,18 @@ AngularJS -  Diretivas - todos os modelos que podem ser utilizados e as descriç
 AngularJS - Bibliotecas
 [Lib Angularjs VS1.3.11](https://code.angularjs.org/1.3.11/)
 
+Angularjs - ngMessages
+[ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages)
+
+nodeJS - Documentação
+[nodeJS](https://nodejs.org/en/download/package-manager/)
+
+ExpressJS - Documentação
+[ExmpressJS](https://expressjs.com/)
+[Hello World](https://expressjs.com/en/starter/hello-world.html)
+
 Slides das Aulas
 [Slides](http://slides.com/ivanhoinacki/oficina-angularjs)
-
-nodeJS
-[nodeJS](https://nodejs.org/en/download/package-manager/)
 
 ## License
 
