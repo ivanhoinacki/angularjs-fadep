@@ -1,0 +1,8 @@
+{
+  "name": "ListaContato",
+  "version": "0.0.1",
+  "author": "Ivan Hoinacki",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
