@@ -46,18 +46,22 @@
                     });
                 };
 
+                $scope.adicionarContato = function(contato) {
+                    contato.dataNascimento = new Date();
+                    contato.cor = "red";
+                    $http.post("http://localhost:8081/contatos", contato).success(function(data) {
+                        delete $scope.contato;
+                        $scope.contatoForm.$setPristine();
+                        carregaContatos();
+                    });
+                };
+
                 var carregaOperadoras = function() {
                     $http.get('http://localhost:8081/operadoras').success(function(data) {
                         $scope.listaOperadoras = data;
                     }).error(function(data, status) {
                         console.log(data, status);
                     });
-                };
-
-                $scope.adicionarContato = function(contato) {
-                    $scope.listaContatos.push(angular.copy(contato));
-                    delete $scope.contato;
-                    $scope.contatoForm.$setPristine();
                 };
 
                 $scope.isSelecionado = function(contatos) {
