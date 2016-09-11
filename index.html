@@ -1,99 +1,26 @@
 <!DOCTYPE html>
 <html ng-app="ListaTelefonica">
     <head>
-        <link rel="stylesheet" href="bootstrap/bootstrap.css" media="screen" title="no title" charset="utf-8">
         <meta charset="utf-8">
         <title>Lista Telefonica</title>
-        <script src="angular.js" charset="utf-8"></script>
-        <script src="angular.message.js" charset="utf-8"></script>
-        <style media="screen">
-            .jumbotron {
-                width: 75%;
-                text-align: center;
-                margin-top: 20px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            h4 {
-                text-align: center;
-            }
-            table {
-                margin-top: 20px;
-            }
-            .selecionado {
-                background-color: yellow;
-                font-size: 15px;
-            }
-            .negrito {
-                font-weight: bold;
-            }
+        <link rel="stylesheet" href="lib/bootstrap/bootstrap.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="css/app.css" media="screen" title="no title">
 
-        </style>
-        <script type="text/javascript">
-            angular.module("ListaTelefonica", ['ngMessages']);
-            angular.module("ListaTelefonica").controller("listaTelefonicaCtrl", listaTelefonicaCtrl);
+        <script src="lib/angular/angular.js" charset="utf-8"></script>
+        <script src="lib/angular/angular.message.js" charset="utf-8"></script>
 
-            /*@ngInject*/
-            function listaTelefonicaCtrl($http, $scope, uppercaseFilter) {
+        <script src="js/app.js" charset="utf-8"></script>
 
-                $scope.listaContatos = [];
+        <script src="js/value/configValue.js" charset="utf-8"></script>
 
-                var carregaContatos = function() {
-                    $http.get('http://localhost:8081/contatos').success(function(data) {
-                        $scope.listaContatos = data;
-                    }).error(function(data, status) {
-                        console.log(data, status);
-                    });
-                };
+        <script src="js/controller/listaTelefonicaCtrl.js" charset="utf-8"></script>
 
-                $scope.adicionarContato = function(contato) {
-                    contato.dataNascimento = new Date();
-                    contato.cor = "red";
-                    $http.post("http://localhost:8081/contatos", contato).success(function(data) {
-                        delete $scope.contato;
-                        $scope.contatoForm.$setPristine();
-                        carregaContatos();
-                    });
-                };
-
-                var carregaOperadoras = function() {
-                    $http.get('http://localhost:8081/operadoras').success(function(data) {
-                        $scope.listaOperadoras = data;
-                    }).error(function(data, status) {
-                        console.log(data, status);
-                    });
-                };
-
-                $scope.isSelecionado = function(contatos) {
-                    return contatos.some(function(contato) {
-                        return contato.selecionado;
-                    })
-                };
-
-                $scope.apagarContatos = function(contatos) {
-                    $scope.listaContatos = contatos.filter(function(contato) {
-                        if (!contato.selecionado)
-                            return contato;
-                        }
-                    );
-                };
-
-                $scope.ordernaPor = function(criterioOrdenacao) {
-                    $scope.txtCriterioOrdemacao = criterioOrdenacao;
-                    $scope.direcaoOrdenacao = !$scope.direcaoOrdenacao;
-                };
-
-                $scope.app = "Lista de Contatos";
-
-                // $scope.vetClasses = ['classe1', 'classe2'];
-
-                $scope.numero = 1000;
-
-                carregaContatos();
-                carregaOperadoras();
-            }
-        </script>
+        <script src="js/service/contatosAPIService.js" charset="utf-8"></script>
+        <script src="js/service/operadorasAPIServe.js" charset="utf-8"></script>
+        <script src="js/service/serialGeneratorService.js" charset="utf-8"></script>
+        <script src="js/filtros/validaNome.js" charset="utf-8"></script>
     </head>
+
     <body ng-controller="listaTelefonicaCtrl">
         <div>
             <div class="jumbotron" ng-cloak>
@@ -111,6 +38,7 @@
                             <th>
                                 <a href="#" ng-click="ordernaPor('sobrenome')">Sobrenome</a>
                             </th>
+                            <th>Serial</th>
                             <th>Telefone</th>
                             <th>Operadora</th>
                             <th>Nascimento</th>
@@ -123,10 +51,13 @@
                                 <input type="checkbox" ng-model="contato.selecionado">
                             </td>
                             <td>
-                                {{ contato.nome | lowercase }}
+                                {{ (contato.nome + ' ' +  contato.sobrenome ) | validaNome }}
                             </td>
                             <td>
-                                {{ contato.sobrenome | uppercase }}
+                                {{   contato.sobrenome | uppercase }}
+                            </td>
+                            <td>
+                                {{ contato.serial  }}
                             </td>
                             <td>
                                 {{ contato.telefone }}
