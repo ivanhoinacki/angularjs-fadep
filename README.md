@@ -17,7 +17,9 @@
 * conectando com o back-end
 * criando rest's
 * utilizando $http
-
+* Organizando o projeto
+* Criando servicos -> Factory, Service, Provider, Value, Constant
+* Criando filtros
 
 
 Referências:
