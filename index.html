@@ -5,7 +5,7 @@
         <title>Lista Telefonica</title>
         <link rel="stylesheet" href="lib/bootstrap/bootstrap.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="css/app.css" media="screen" title="no title">
-
+        <link rel="stylesheet" href="css/ui.css" media="screen" title="no title">
         <script src="lib/angular/angular.js" charset="utf-8"></script>
         <script src="lib/angular/angular.message.js" charset="utf-8"></script>
 
@@ -19,6 +19,9 @@
         <script src="js/service/operadorasAPIServe.js" charset="utf-8"></script>
         <script src="js/service/serialGeneratorService.js" charset="utf-8"></script>
         <script src="js/filtros/validaNome.js" charset="utf-8"></script>
+
+        <script src="js/directive/uiAlert/uiAlert.js" charset="utf-8"></script>
+
     </head>
 
     <body ng-controller="listaTelefonicaCtrl">
@@ -27,6 +30,14 @@
                 <h4>{{ app }}</h4>
 
                 <input type="text" placeholder="O que vc está buscando?" class="form-control" ng-model="txtCriterioDeBusca" name="buscar">
+
+                {{$id}}
+
+                <input type="text" class="form-control" ng-model="error">
+
+                <div ui-Alert title="Ops, aconteceu um problema!" condicao="error">
+                    {{error}}
+                </div>
 
                 <table ng-show="listaContatos.length > 0" class="table">
                     <thead>

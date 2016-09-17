@@ -8,8 +8,9 @@ function listaTelefonicaCtrl($http, $scope, uppercaseFilter, contatoAPI, operado
     var carregaContatos = function() {
     contatoAPI.getContato().success(function(data) {
             $scope.listaContatos = data;
-        }).error(function(data, status) {
-            console.log(data, status);
+        })
+        .error(function(data, status) {
+            $scope.error = "Não foi possivel carrega os dados.";
         });
     };
 
@@ -30,7 +31,7 @@ function listaTelefonicaCtrl($http, $scope, uppercaseFilter, contatoAPI, operado
         operadorasAPI.getOperadoras().success(function(data) {
             $scope.listaOperadoras = data;
         }).error(function(data, status) {
-            console.log(data, status);
+            $scope.error = "Não foi possivel carrega os dados.";
         });
     };
 
