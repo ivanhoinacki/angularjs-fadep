@@ -18,9 +18,13 @@
 * criando rest's
 * utilizando $http
 * Organizando o projeto
-* Criando servicos -> Factory, Service, Provider, Value, Constant
+* Criando servicos -> Factory, Service, Provider, Value, Constant, config
 * Criando filtros
-
+* Criando Diretivas
+* Criando rotas
+* modularizando o projeto
+* login
+* criando session em cookies
 
 Referências:
 
