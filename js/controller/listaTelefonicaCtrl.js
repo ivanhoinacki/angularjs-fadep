@@ -7,6 +7,10 @@ function listaTelefonicaCtrl($http, $scope, uppercaseFilter, contatoAPI, operado
 
     var carregaContatos = function() {
     contatoAPI.getContato().success(function(data) {
+
+            data.forEach(function(item){
+                item.serial = serialGenerator.generate();
+            });
             $scope.listaContatos = data;
         })
         .error(function(data, status) {

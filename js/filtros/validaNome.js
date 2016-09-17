@@ -10,8 +10,7 @@ function validaNomeFilter() {
             return nome.charAt(0).toUpperCase() + nome.substring(1);
         });
 
-        // Separa o vetor por espaco
-        console.log(nomeFormatado.join(" "));
+        // Separa o vetor por espaco        
         return nomeFormatado.join(" ");
     }
 }

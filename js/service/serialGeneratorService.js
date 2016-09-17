@@ -9,8 +9,8 @@ function serialGeneratorProvider() {
         return _length;
     };
 
-    this.setLength = function() {
-        return _length;
+    this.setLength = function(length) {
+        _length = length;
     };
 
     this.$get = function() {
