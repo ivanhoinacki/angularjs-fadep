@@ -1,4 +1,5 @@
-angular.module("ListaTelefonica").provider("serialGenerator", serialGeneratorProvider);
+angular.module("serialGenerator", []);
+angular.module("serialGenerator").provider("serialGenerator", serialGeneratorProvider);
 
 /*@ngInject*/
 function serialGeneratorProvider() {

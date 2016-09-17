@@ -1,20 +1,40 @@
-angular.module("ListaTelefonica").controller("listaTelefonicaCtrl", listaTelefonicaCtrl);
+angular.module("ListaTelefonica").controller("ListaTelefonicaCtrl", listaTelefonicaCtrl);
 
 /*@ngInject*/
-function listaTelefonicaCtrl($http, $scope, uppercaseFilter, contatoAPI, operadorasAPI, serialGenerator) {
+function listaTelefonicaCtrl(contatos, operadoras, contatosAPI, $scope, serialGenerator) {
 
     $scope.listaContatos = [];
 
-    var carregaContatos = function() {
-    contatoAPI.getContato().success(function(data) {
+    // carregados pelo resolve do routeConfig
 
-            data.forEach(function(item){
-                item.serial = serialGenerator.generate();
-            });
-            $scope.listaContatos = data;
-        })
-        .error(function(data, status) {
-            $scope.error = "Não foi possivel carrega os dados.";
+    $scope.listaContatos = contatos.data;
+    $scope.listaOperadoras = operadoras.data;
+
+
+    // var carregaContatos = function() {
+    //
+    //     contatosAPI.getContatos().success(function(data) {
+    //             data.forEach(function(item) {
+    //                 item.serial = serialGenerator.generate();
+    //             });
+    //             $scope.listaContatos = data;
+    //         })
+    //         .error(function(data, status) {
+    //             $scope.error = "Não foi possivel carrega os dados.";
+    //         });
+    // };
+    //
+    // var carregaOperadoras = function() {
+    //     operadorasAPI.getOperadoras().success(function(data) {
+    //         $scope.listaOperadoras = data;
+    //     }).error(function(data, status) {
+    //         $scope.error = "Não foi possivel carrega os dados.";
+    //     });
+    // };
+
+    var generateSerial = function(contatos) {
+        contatos.forEach(function(item) {
+            item.serial = serialGenerator.generate();
         });
     };
 
@@ -31,14 +51,6 @@ function listaTelefonicaCtrl($http, $scope, uppercaseFilter, contatoAPI, operado
 
     };
 
-    var carregaOperadoras = function() {
-        operadorasAPI.getOperadoras().success(function(data) {
-            $scope.listaOperadoras = data;
-        }).error(function(data, status) {
-            $scope.error = "Não foi possivel carrega os dados.";
-        });
-    };
-
     $scope.isSelecionado = function(contatos) {
         return contatos.some(function(contato) {
             return contato.selecionado;
@@ -49,8 +61,7 @@ function listaTelefonicaCtrl($http, $scope, uppercaseFilter, contatoAPI, operado
         $scope.listaContatos = contatos.filter(function(contato) {
             if (!contato.selecionado)
                 return contato;
-            }
-        );
+        });
     };
 
     $scope.ordernaPor = function(criterioOrdenacao) {
@@ -64,6 +75,8 @@ function listaTelefonicaCtrl($http, $scope, uppercaseFilter, contatoAPI, operado
 
     $scope.numero = 1000;
 
-    carregaContatos();
-    carregaOperadoras();
+    generateSerial($scope.listaContatos);
+
+    // carregaContatos();
+    // carregaOperadoras();
 }

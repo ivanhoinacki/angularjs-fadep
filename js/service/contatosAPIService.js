@@ -1,7 +1,7 @@
-angular.module("ListaTelefonica").factory("contatoAPI", contatoAPIFactory);
+angular.module("ListaTelefonica").factory("contatosAPI", contatosAPIFactory);
 
 /*@ngInject*/
-function contatoAPIFactory($http, config) {
+function contatosAPIFactory($http, config) {
 
     var _getContatos = function() {
         return $http.get(config.baseUrl + '/contatos');
@@ -12,7 +12,7 @@ function contatoAPIFactory($http, config) {
     };
 
     return {
-        getContato : _getContatos,
+        getContatos : _getContatos,
         saveContato: _saveContato
     }
 };

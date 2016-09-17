@@ -1,3 +1,29 @@
-<div class="jumbotron">
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title"></h1>
+            <div class="account-wall">
+                <img class="profile-img" style="height: 120px; width: 115px;" alt="">
+                <div class="container-fluid">
+                    <div ng-show="formLogin.user.$dirty" ng-messages="formLogin.user.$error">
+                        <div ng-message="required" class="alert alert-danger">
+                            Por favor, preencha o campo nome!
+                        </div>
+                    </div>
+                    <div ng-show="formLogin.password.$dirty" ng-messages="formLogin.password.$error">
+                        <div ng-message="required" class="alert alert-danger">
+                            Por favor, preencha o campo Senha!
+                        </div>
+                    </div>
+                </div>
+                <form name="formLogin" class="form-signin">
+                    <input ng-required="true" name="user" ng-model="vm.form.user" type="text" class="form-control required" placeholder="Usuário">
+                    <input ng-required="true" name="password" ng-model="vm.form.password" type="password" class="form-control required" placeholder="Senha">
+                    <input id="btn-login" class="btn btn-lg btn-primary btn-block" type="submit" value="Entrar" ng-click="vm.singIn(vm.form);" ng-disabled="formLogin.$invalid">
+                    <span class="clearfix"></span>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="footer" ng-include="'view/footer/footer.html'"></div>

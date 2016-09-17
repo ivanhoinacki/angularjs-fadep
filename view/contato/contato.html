@@ -4,6 +4,10 @@
 
         <input type="text" placeholder="O que vc está buscando?" class="form-control" ng-model="txtCriterioDeBusca" name="buscar">
 
+        <div ui-Alert title="Ops, aconteceu um problema!" condicao="error">
+            {{error}}
+        </div>
+
         <table ng-show="listaContatos.length > 0" class="table">
             <thead>
                 <tr>
