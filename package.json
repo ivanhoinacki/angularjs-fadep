@@ -1,0 +1,11 @@
+{
+  "name": "ListaContatos",
+  "version": "0.0.1",
+  "author": "Ivan Hoinacki",
+  "scripts":{
+    "start": "http-server -a localhost ./ -p 8000 -c-1"
+  },
+  "dependencies": {
+    "http-server": "^0.9.0"
+  }
+}
