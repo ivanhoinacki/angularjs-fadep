@@ -18,7 +18,7 @@
 * criando rest's
 * utilizando $http
 * Organizando o projeto
-* Criando servicos -> Factory, Service, Provider, Value, Constant, config
+* Criando servicos -> Factory, Service, Provider, Value, Constant, Config
 * Criando filtros
 * Criando Diretivas
 * Criando rotas
