@@ -2,7 +2,6 @@
 
 > seed-project do nosso curso em angularjs.
 
-
 #O que vimos até agora:
 * Introdução ao angularjs
 * About
