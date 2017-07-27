@@ -1,0 +1,67 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6" ng-app="app"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7" ng-app="app"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8" ng-app="app"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9" ng-app="app"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js" ng-app="app" >
+<head>
+    <meta charset="utf-8">
+    <title>Limber</title>
+    <meta name="google-signin-client_id" content="530675244790-at0tgb6s5osqpqnfchvgs1017bq1s606.apps.googleusercontent.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="../bower_components/angular-toastr/dist/angular-toastr.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/app.css">
+    <!-- endinject -->
+
+</head>
+<body class="bs-docs-home ng-cloak" >
+    <div class="container" >
+        <!-- <div class="bs-docs-section" > -->
+            <div ui-view></div>
+        <!-- </div> -->
+    </div>
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-messages/angular-messages.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="../bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <!-- endbower -->
+
+    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <script src="app/partials/selfservice/selfservice.module.js"></script>
+    <script src="app/partials/selfservice/product/controller/product.controller.js"></script>
+    <script src="app/partials/selfservice/payment/controller/payment.controller.js"></script>
+    <script src="app/partials/selfservice/home/controller/home.controller.js"></script>
+    <script src="app/partials/selfservice/groupproduct/controller/groupproduct.controller.js"></script>
+    <script src="app/partials/selfservice/checkin/controller/checkin.controller.js"></script>
+    <script src="app/partials/selfservice/selfservice.config.js"></script>
+    <script src="app/partials/partials.module.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/config.utils.js"></script>
+    <script src="app/config.session.js"></script>
+    <script src="app/config.route.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+</body>
+</html>
